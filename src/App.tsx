@@ -6,8 +6,10 @@ function App() {
     const [formula, setFormula] = useState<string>('');
     const [molSVG, setMolSVG] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
+    const [inputValue, setInputValue] = useState<string>('');
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setInputValue(event.target.value);
         setFormula(event.target.value);
         setError(null);
     };
@@ -29,16 +31,19 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <h1>Chemistry Skeletal Structure Viewer</h1>
+                <h1>Organic Structures</h1>
             </header>
             <div>
-                <input
-                    type="text"
-                    value={formula}
-                    onChange={handleInputChange}
-                    placeholder="Enter chemical formula (e.g. C6H6)"
-                />
-                <button onClick={drawMolecule}>Generate Structure</button>
+                <div style={{ height: "10vh" }}>
+                    <input
+                        style={{ height: "inherit", width: `${Math.max(inputValue.length, 1)}ch` }}
+                        type="text"
+                        value={formula}
+                        onChange={handleInputChange}
+                        placeholder="Enter chemical formula (e.g. C6H6)"
+                    />
+                    <button style={{ height: "inherit" }} onClick={drawMolecule}>Generate Structure</button>
+                </div>
                 <div className="structure">
                     {molSVG ? (
                         <div dangerouslySetInnerHTML={{ __html: molSVG }} />
