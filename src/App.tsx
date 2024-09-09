@@ -28,6 +28,12 @@ function App() {
         }
     };
 
+    const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === 'Enter') {
+            drawMolecule();
+        }
+    };
+
     return (
         <div className="App">
             <header className="App-header">
@@ -40,6 +46,7 @@ function App() {
                         type="text"
                         value={formula}
                         onChange={handleInputChange}
+                        onKeyPress={handleKeyPress}
                         placeholder="Enter chemical formula (e.g. C6H6)"
                     />
                     <button style={{ height: "inherit" }} onClick={drawMolecule}>Generate Structure</button>
