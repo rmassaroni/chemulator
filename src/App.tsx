@@ -1,36 +1,21 @@
 import React, { useState } from 'react';
-import { Molecule } from 'openchemlib/full';
 import './App.css';
+import MoleculeComponent from './Molecule';
 
 function App() {
-    const [formula, setFormula] = useState<string>('');
-    const [molSVG, setMolSVG] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [inputValue, setInputValue] = useState<string>('');
 
+    const molecule = MoleculeComponent('');
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(event.target.value);
         setError(null);
     };
 
-    const drawMolecule = () => {
-        console.log('drawing molecule');
-        try {
-            const molecule = Molecule.fromSmiles(inputValue);
-            const svg = molecule.toSVG(100, 100);
-            setMolSVG(svg);
-            setError(null);
-        } catch (error) {
-            console.error('Invalid formula or SMILES input:', error);
-            setMolSVG(null);
-            setError('Invalid SMILES notation. Please enter a valid formula.');
-        }
-    };
-
     const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter') {
-            setFormula(inputValue);
-            drawMolecule();
+            molecule.setFormula(inputValue);
+            molecule.drawMolecule(inputValue);
         }
     };
 
@@ -48,16 +33,8 @@ function App() {
                 />
             </header>
             <div className='page'>
-                <div className='page-header'>Molecule: {formula}</div>
-                {molSVG ? (
-                    <div className='structure'>
-                        <h2>Structure</h2>
-                        <div style={{ transform: "scale(4)" }}dangerouslySetInnerHTML={{ __html: molSVG }} />
-                    </div>
-                ) : (
-                        <p style={{ fontSize: "x-large", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>Enter a valid chemical formula in SMILES notation to begin.</p>
-                    )}
-
+                <div className='page-header'>Molecule: {molecule.formula}</div>
+                {molecule.SkeletalStructure()}
             </div>
         </div>
     );
