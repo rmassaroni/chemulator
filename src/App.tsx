@@ -18,7 +18,7 @@ function App() {
         console.log('drawing molecule');
         try {
             const molecule = Molecule.fromSmiles(formula);
-            const svg = molecule.toSVG(300, 300);
+            const svg = molecule.toSVG(100, 100);
             setMolSVG(svg);
             setError(null);
         } catch (error) {
@@ -52,7 +52,7 @@ function App() {
                 </div>
                 <div className="structure">
                     {molSVG ? (
-                        <div dangerouslySetInnerHTML={{ __html: molSVG }} />
+                        <div style={{ transform: "scale(4)" }}dangerouslySetInnerHTML={{ __html: molSVG }} />
                     ) : (
                             <p>Enter a valid chemical formula in SMILES notation.</p>
                         )}
