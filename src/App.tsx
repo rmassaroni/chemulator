@@ -30,6 +30,8 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <h1>Chemistry Skeletal Structure Viewer</h1>
+            </header>
+            <div>
                 <input
                     type="text"
                     value={formula}
@@ -44,7 +46,8 @@ function App() {
                             <p>Enter a valid chemical formula (e.g., SMILES notation).</p>
                         )}
                 </div>
-            </header>
+
+            </div>
         </div>
     );
 }
