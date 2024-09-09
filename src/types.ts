@@ -3,4 +3,6 @@ export interface iMolecule {
     setFormula: (formula: string) => void;
     drawMolecule: (form: string) => void;
     SkeletalStructure: () => JSX.Element;
+    condensedFormula: (skeletalformula: string) => string;
+    skeletalFormula: (formula: string) => string;
 }

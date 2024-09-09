@@ -34,6 +34,7 @@ function App() {
             </header>
             <div className='page'>
                 <div className='page-header'>Molecule: {molecule.formula}</div>
+                <h2>Condensed Formula: {molecule.condensedFormula(molecule.formula)}</h2>
                 {molecule.SkeletalStructure()}
             </div>
         </div>

@@ -11,6 +11,7 @@
         "@types/node": "^16.18.105",
         "@types/react": "^18.3.4",
         "@types/react-dom": "^18.3.0",
+        "chemical-elements": "^2.1.1",
         "openchemlib": "^8.15.0",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
