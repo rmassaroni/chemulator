@@ -42,7 +42,7 @@ function App() {
             <div>
                 <div style={{ height: "10vh" }}>
                     <input
-                        style={{ height: "inherit", width: `${Math.max(inputValue.length, 1)}ch` }}
+                        style={{ height: "inherit", width: `${Math.max(inputValue.length, 10)}ch` }}
                         type="text"
                         value={formula}
                         onChange={handleInputChange}
