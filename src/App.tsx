@@ -49,7 +49,6 @@ function App() {
                         onKeyPress={handleKeyPress}
                         placeholder="Enter chemical formula (e.g. C6H6)"
                     />
-                    <button style={{ height: "inherit" }} onClick={drawMolecule}>Generate Structure</button>
                 </div>
                 <div className="structure">
                     {molSVG ? (
