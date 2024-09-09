@@ -42,7 +42,7 @@ function App() {
             <div>
                 <div style={{ height: "10vh" }}>
                     <input
-                        style={{ height: "inherit", width: `${Math.max(inputValue.length, 10)}ch` }}
+                        style={{ width: `${Math.max(inputValue.length, 28.1)}ch`, fontSize: "xx-large", padding: "5px" }}
                         type="text"
                         value={formula}
                         onChange={handleInputChange}
@@ -54,7 +54,7 @@ function App() {
                     {molSVG ? (
                         <div dangerouslySetInnerHTML={{ __html: molSVG }} />
                     ) : (
-                            <p>Enter a valid chemical formula (e.g., SMILES notation).</p>
+                            <p>Enter a valid chemical formula in SMILES notation.</p>
                         )}
                 </div>
 
