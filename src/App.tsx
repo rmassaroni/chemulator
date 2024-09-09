@@ -37,24 +37,25 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <h1>Organic Structures</h1>
-            </header>
-            <div>
-                <div style={{ height: "10vh" }}>
+                <h1 style={{ alignSelf: "center" }}>Chemulator</h1>
                     <input
-                        style={{ width: `${Math.max(inputValue.length, 28.1)}ch`, fontSize: "xx-large", padding: "5px" }}
+                        style={{ width: `${Math.max(inputValue.length, 28.1)}ch`, fontSize: "xx-large", padding: "5px", alignSelf: "center" }}
                         type="text"
                         value={formula}
                         onChange={handleInputChange}
                         onKeyPress={handleKeyPress}
                         placeholder="Enter chemical formula (e.g. C6H6)"
                     />
+            </header>
+            <div>
+                <div style={{ height: "10vh" }}>
+
                 </div>
                 <div className="structure">
                     {molSVG ? (
                         <div style={{ transform: "scale(4)" }}dangerouslySetInnerHTML={{ __html: molSVG }} />
                     ) : (
-                            <p>Enter a valid chemical formula in SMILES notation.</p>
+                            <p>Enter a valid chemical formula in SMILES notation to begin.</p>
                         )}
                 </div>
 
